@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: demo-application ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: demo.com
+      http:
+        paths:
+          - backend:
+              serviceName: application-1-clusterip
+              servicePort: 8080
+            path: /application-1/?(.*)
+          - backend:
+              serviceName: application-1-clusterip
+              servicePort: 8081
+            path: /application-2/?(.*)
+          - backend:
+              serviceName: application-1-clusterip
+              servicePort: 8082
+            path: /application-3/?(.*)
