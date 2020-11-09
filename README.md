@@ -1,6 +1,6 @@
 # Deployment
 
-## Pre-re
+## Pre-requesit
 
 Make sure you have Docker installed in your machine with kubernetes enabled.
 
